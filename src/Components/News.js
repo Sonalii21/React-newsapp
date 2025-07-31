@@ -92,6 +92,14 @@ export class News extends Component {
     }
         
     }
+    async componentDidMount(){
+      let url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6168a2b45eca45a7b7c06f7b39bb38ab";
+      let data = await fetch(url);
+      let parsedData = await data.json();
+      console.log(parsedData);
+      this.setState({articles: parsedData.articles, loading: false});
+
+    }
   render() {
     return (
       <div className='container my-3'>
@@ -99,7 +107,7 @@ export class News extends Component {
         <div className="row">
           {this.state.articles.map((element) => {
             return <div className="col-md-4" key={element.url}>
-              <NewsItem title={element.title ? element.title.slice(0, 45) : ""} desc={element.description ? element.description.slice(0, 88) : ""} imageurl={element.urlToImage} newsurl={element.url}/>
+              <NewsItem title={element.title ? element.title.slice(0, 45) : ""} desc={element.description ? element.description.slice(0, 88) : ""} imageurl={element.urlToImage?element.urlToImage :"https://media.cnn.com/api/v1/images/stellar/prod/cnn-headlines-placeholder-1920x1080.png?c=16x9&q=w_800,c_fill"} newsurl={element.url}/>
             </div>
           })}
 
