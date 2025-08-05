@@ -12,8 +12,8 @@ export class NewsItem extends Component {
                         e.target.src = "https://media.cnn.com/api/v1/images/stellar/prod/cnn-headlines-placeholder-1920x1080.png?c=16x9&q=w_800,c_fill";
                     }} />
                     <div className="card-body">
-                        <h5 className="card-title">{title}</h5>
-                        <p className="card-text">{desc}</p>
+                        <h5 className="card-title">{title}...</h5>
+                        <p className="card-text">{desc}...</p>
                         <a href={newsurl} target='_blank' rel="noreferrer" className="btn btn-sm btn-primary">Read more</a>
                     </div>
                 </div>
